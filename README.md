@@ -20,6 +20,11 @@ Find the letter to cipher in _keyRight_ and pick the corresponding letter in _ke
    3. Shift by one location to the left all the letters which indexes are between 3 and 13
    4. Insert in the blank the letter which has been memorized earlier
 
+### Decipherig a text
+It's based on the same principle, but this time we find the cipher letter in _keyLeft_ and we decipher it taking the letter of the same index in _keyRight_.
+
+We reorder _keyLeft_ and _keyRight_ in the exact same way that in the ciphering.
+
 ## Example of use
 In this example we will have at the beginning :
 
