@@ -1,3 +1,7 @@
+#Imports
+import math
+
+
 # Function that uppercase the plain text and remove spaces
 def convertLetters(text):
     print("Convert Letters")
@@ -5,7 +9,14 @@ def convertLetters(text):
 
 # Function that generate a key
 def generateKey():
-    print("Generate Key")
+    abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    key = []
+    for i in range(0,26):
+        indexLetter = randint(0,len(abc))
+        letter = abc[indexLetter]
+        key.append(letter)
+        abc.remove(letter)    
+    return key
 
 
 # Function that verify the generated key
