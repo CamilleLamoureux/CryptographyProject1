@@ -8,7 +8,7 @@ print("Bienvenue dans le premier algorithme de cryptage ! \n"
 choice = int(input("Your choice : "))
 
 # If we want to cipher
-if choice = 1:
+if choice == 1:
     cipher = False
     text = list(input("Your message : "))
     keyLeft = generateKey()
@@ -16,7 +16,7 @@ if choice = 1:
     algorithm1(text, keyLeft, keyRight, cipher)
 
 # If we want to decipher
-elif choice = 2:
+elif choice == 2:
     cipher = True
     text = list("PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH")
     keyLeft = list("ALZBHGUWIEFJCDYNMQRVKPTOXS")
