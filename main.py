@@ -9,18 +9,18 @@ choice = int(input("Your choice : "))
 
 # If we want to cipher
 if choice == 1:
-    cipher = False
-    text = list(input("Your message : "))
-    keyLeft = generateKey()
-    keyRight = generateKey()
-    algorithm1(text, keyLeft, keyRight, cipher)
-
-# If we want to decipher
-elif choice == 2:
     cipher = True
     text = list("PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH")
     keyLeft = list("ALZBHGUWIEFJCDYNMQRVKPTOXS")
     keyRight = list("TWXLPRDZMNUGSAQKJHEBCIFYVO")
+    algorithm1(text, keyLeft, keyRight, cipher)
+
+# If we want to decipher
+elif choice == 2:
+    cipher = False
+    text = list(input("Your message : "))
+    keyLeft = generateKey()
+    keyRight = generateKey()
     algorithm1(text, keyLeft, keyRight, cipher)
 
 # If the user give another number
