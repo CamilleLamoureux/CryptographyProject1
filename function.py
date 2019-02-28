@@ -1,7 +1,6 @@
 #Imports
 import math
 
-
 # Function that uppercase the plain text and remove spaces
 def convertLetters(text):
     print("Convert Letters")
@@ -53,4 +52,4 @@ def shiftRight(keyRight,i):
 
 # Function that cipher or decipher the given text
 def algorithm1(text,keyLeft,keyRight,cipher):
-    print("algorithm1")
+    print(text,keyRight,keyLeft,cipher)
