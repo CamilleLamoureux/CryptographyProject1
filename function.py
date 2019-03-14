@@ -1,9 +1,72 @@
 #Imports
-import math
 
-# Function that uppercase the plain text and remove spaces
+
+# Function that test if their are remaining spaces in the text
+def noSpaceRemaining(text):
+    return True if text.count(" ") == 0 else False
+
+
+# Function that remove a space
+def removeSpaces(text):
+    while not noSpaceRemaining(text):
+        text.remove(" ")
+
+
+# Function that convert accent-letters to non-accent-letters
+def removeAccents(text):
+    accentsE = ['é', 'ẹ', 'è', 'ẻ', 'ẽ', 'ê', 'ế', 'ệ', 'ề', 'ể', 'ễ','ë']
+    accentsA = ['á', 'ạ', 'à', 'ả', 'ã', 'ă', 'ắ', 'ặ', 'ằ', 'ẳ', 'ẵ', 'â', 'ấ', 'ậ', 'ầ', 'ẩ', 'ẫ','ä']
+    accentsU = ['ú', 'ụ', 'ù', 'ủ', 'ũ', 'ư', 'ứ', 'ự', 'ừ', 'ử', 'ữ','ü']
+    accentsI = ['í', 'ị', 'ì', 'ỉ', 'ĩ','ï']
+    accentsY = ['ý', 'ỵ', 'ỳ', 'ỷ', 'ỹ','ÿ']
+    accentsO = ['ó', 'ọ', 'ò', 'ỏ', 'õ', 'ô', 'ố', 'ộ', 'ồ', 'ỗ', 'ơ', 'ớ', 'ợ', 'ờ', 'ở', 'ỡ','ö']
+
+    for i in range(len(text)):
+        if text[i] == 'ç':
+            text[i] = 'C'
+        elif text[i] in accentsA:
+            text[i] = 'A'
+        elif text[i] in accentsE:
+            text[i] = 'E'
+        elif text[i] in accentsU:
+            text[i] = 'U'
+        elif text[i] in accentsI:
+            text[i] = 'I'
+        elif text[i] in accentsO:
+            text[i] = 'O'
+        elif text[i] in accentsY:
+            text[i] = 'Y'
+
+
+# Function that upper the text
+def upper(text):
+    for i in range(len(text)):
+        text[i] = text[i].upper()
+
+# Function that test if there is still punctuation signs
+def noPuncSignRemaining(text):
+    punctSigns = [',', '.', '?', '!', "'", '-', '_', ':', ';']
+    for letter in text :
+        if letter in punctSigns:
+            return False
+    return True
+
+# Function that remove punctuations signs
+def removePunctuationSigns(text):
+    punctSigns = [',','.','?','!',"'",'-','_',':',';']
+    while not noPuncSignRemaining(text):
+        for element in punctSigns:
+            if element in text :
+                text.remove(element)
+
+
+# Function that convert the givent text into a
 def convertLetters(text):
-    print("Convert Letters")
+    removeSpaces(text)
+    removeAccents(text)
+    removePunctuationSigns(text)
+    upper(text)
+    return text
 
 
 # Function that generate a key
