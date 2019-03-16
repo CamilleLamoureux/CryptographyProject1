@@ -1,4 +1,4 @@
-from function import algorithm1,generateKey
+from function import algorithm1, generateKey
 
 print("Bienvenue dans le premier algorithme de cryptage ! \n"
       "Voulez-vous (1 or 2): \n"
@@ -10,7 +10,8 @@ choice = int(input("Your choice : "))
 # If we want to cipher
 if choice == 1:
     cipher = True
-    text = list("PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH")
+    text = list(
+        "PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH")
     keyLeft = list("ALZBHGUWIEFJCDYNMQRVKPTOXS")
     keyRight = list("TWXLPRDZMNUGSAQKJHEBCIFYVO")
     algorithm1(text, keyLeft, keyRight, cipher)
@@ -26,5 +27,3 @@ elif choice == 2:
 # If the user give another number
 else:
     print("Please try again and make sure your input is 1 or 2.")
-
-    

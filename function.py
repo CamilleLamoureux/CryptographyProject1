@@ -83,12 +83,49 @@ def generateKey():
 
 # Function that verify the generated key
 def keyOK(key):
-    print("key OK")
+    generateKey()
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    if len(set(key).intersection(alphabet))==26:
+        return True
+
 
 
 # Function that reorder keyleft
-def shifLeft(keyLeft,i):
+keyLeft = ["A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P", "M", "L", "K", "J", "H", "G", "F", "D", "S", "Q", "W", "X",
+           "C", "V", "B", "N"]
+valeur = str("R")
+i = keyLeft.index(valeur)
+
+def shiftLeft(keyLeft, i):
+    newkeyLeft = []
+
+    for lettre in keyLeft[i + 1:]:
+        newkeyLeft.append(lettre)
+
+    for lettre in keyLeft[:i ]:
+        newkeyLeft.append(lettre)
+
+    print(newkeyLeft)
+
+    newkeyLeft.insert(0, valeur)
+
+    print(newkeyLeft)
+
+    position1 = newkeyLeft[1]
+    newkeyLeft[1] = " "
+    print(newkeyLeft)
+
+#partie de test, non finie, cause des erreurs affichées
+    for lettre in newkeyLeft[2:13]:
+        deplacement = newkeyLeft.index(lettre)
+        deplacement-=1
+
+    print(newkeyLeft)
+
     print("shiftLeft")
+
+    newkeyLeft[13] = position1
+    print(newkeyLeft)
 
 
 # Function that reorder keyRight
