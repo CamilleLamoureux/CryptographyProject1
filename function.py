@@ -142,5 +142,34 @@ def shiftRight(keyRight, i):
 
 
 # Function that cipher or decipher the given text
-def algorithm1(text,keyLeft,keyRight,cipher):
-    pass
+dencrypted_message=[]
+decrypted_message=[]
+enc_letter=str()
+dec_letter=int()
+def algorithm1(text, keyLeft, keyRight, cipher):
+    if cipher == True:
+        convertLetters(text)
+        keyLeft = generateKey()
+        keyOK(keyLeft)
+        keyRight = generateKey()
+        keyOK(keyRight)
+
+        for lettre in range(0,text):
+            position = keyRight.index(i)
+            enc_letter=(keyLeft[position])
+            encrypted_message.append[enc_letter]
+            shiftRight(keyRight,i)
+            shiftLeft(keyLeft,i)
+
+        print(encrypted_message)
+
+    else:
+        convertLetters(text)
+        for lettre in range(0, text):
+            position = keyLeft.index(i)
+            dec_letter = keyRight[position]
+            decrypted_message.append[dec_letter]
+            shiftRight(keyRight,i)
+            shiftLeft(keyLeft,i)
+
+        print(decrypted_message)
