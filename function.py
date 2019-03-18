@@ -1,15 +1,16 @@
 #Imports
-
+from random import randint
+import string
 
 # Function that test if their are remaining spaces in the text
 def noSpaceRemaining(text):
-    return True if text.count(" ") == 0 else False
+    return True if text.count(' ') == 0 else False
 
 
 # Function that remove a space
 def removeSpaces(text):
     while not noSpaceRemaining(text):
-        text.remove(" ")
+        text.remove(' ')
 
 
 # Function that convert accent-letters to non-accent-letters
@@ -71,10 +72,10 @@ def convertLetters(text):
 
 # Function that generate a key
 def generateKey():
-    abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     key = []
-    for i in range(0,25):
-        indexLetter = randint(0,len(abc))
+    for i in range(0,26):
+        indexLetter = randint(0,len(abc)-1)
         letter = abc[indexLetter]
         key.append(letter)
         abc.remove(letter)
@@ -83,16 +84,15 @@ def generateKey():
 
 # Function that verify the generated key
 def keyOK(key):
-    generateKey()
-    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    if len(set(key).intersection(alphabet))==26:
-        return True
+   if len(set(key).intersection(string.ascii_uppercase))==26:
+       return True
+   return False
 
 
 
 # Function that reorder keyleft
-keyLeft = ["A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P", "M", "L", "K", "J", "H", "G", "F", "D", "S", "Q", "W", "X",
-           "C", "V", "B", "N"]
+keyLeft = ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'M', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'Q', 'W', 'X',
+           'C', 'V', 'B', 'N']
 valeur = str("R")
 i = keyLeft.index(valeur)
 
@@ -112,7 +112,7 @@ def shiftLeft(keyLeft, i):
     print(newkeyLeft)
 
     position1 = newkeyLeft[1]
-    newkeyLeft[1] = " "
+    newkeyLeft[1] = ' '
     print(newkeyLeft)
 
 #partie de test, non finie, cause des erreurs affichées
@@ -122,7 +122,7 @@ def shiftLeft(keyLeft, i):
 
     print(newkeyLeft)
 
-    print("shiftLeft")
+    print('shiftLeft')
 
     newkeyLeft[13] = position1
     print(newkeyLeft)
@@ -139,7 +139,7 @@ def shiftRight(keyRight,i):
         newKeyRight.append(letter)
 
     letterOfIndexTwo = newKeyRight[2]
-    newKeyRight[2] = " "
+    newKeyRight[2] = ' '
 
     for letter in newKeyRight[3:14]:
         indexOfLetter = newKeyRight.index(letter)
@@ -152,4 +152,4 @@ def shiftRight(keyRight,i):
 
 # Function that cipher or decipher the given text
 def algorithm1(text,keyLeft,keyRight,cipher):
-    print(text,keyRight,keyLeft,cipher)
+    pass
