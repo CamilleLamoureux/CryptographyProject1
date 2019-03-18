@@ -1,6 +1,4 @@
 #Imports
-from random import randint
-import string
 
 # Function that test if their are remaining spaces in the text
 def noSpaceRemaining(text):
@@ -15,12 +13,12 @@ def removeSpaces(text):
 
 # Function that convert accent-letters to non-accent-letters
 def removeAccents(text):
-    accentsE = ['é', 'ẹ', 'è', 'ẻ', 'ẽ', 'ê', 'ế', 'ệ', 'ề', 'ể', 'ễ','ë']
-    accentsA = ['á', 'ạ', 'à', 'ả', 'ã', 'ă', 'ắ', 'ặ', 'ằ', 'ẳ', 'ẵ', 'â', 'ấ', 'ậ', 'ầ', 'ẩ', 'ẫ','ä']
-    accentsU = ['ú', 'ụ', 'ù', 'ủ', 'ũ', 'ư', 'ứ', 'ự', 'ừ', 'ử', 'ữ','ü']
-    accentsI = ['í', 'ị', 'ì', 'ỉ', 'ĩ','ï']
-    accentsY = ['ý', 'ỵ', 'ỳ', 'ỷ', 'ỹ','ÿ']
-    accentsO = ['ó', 'ọ', 'ò', 'ỏ', 'õ', 'ô', 'ố', 'ộ', 'ồ', 'ỗ', 'ơ', 'ớ', 'ợ', 'ờ', 'ở', 'ỡ','ö']
+    accentsE = ['é', 'ẹ', 'è', 'ẻ', 'ẽ', 'ê', 'ế', 'ệ', 'ề', 'ể', 'ễ', 'ë']
+    accentsA = ['á', 'ạ', 'à', 'ả', 'ã', 'ă', 'ắ', 'ặ', 'ằ', 'ẳ', 'ẵ', 'â', 'ấ', 'ậ', 'ầ', 'ẩ', 'ẫ', 'ä']
+    accentsU = ['ú', 'ụ', 'ù', 'ủ', 'ũ', 'ư', 'ứ', 'ự', 'ừ', 'ử', 'ữ', 'ü']
+    accentsI = ['í', 'ị', 'ì', 'ỉ', 'ĩ', 'ï']
+    accentsY = ['ý', 'ỵ', 'ỳ', 'ỷ', 'ỹ', 'ÿ']
+    accentsO = ['ó', 'ọ', 'ò', 'ỏ', 'õ', 'ô', 'ố', 'ộ', 'ồ', 'ỗ', 'ơ', 'ớ', 'ợ', 'ờ', 'ở', 'ỡ', 'ö']
 
     for i in range(len(text)):
         if text[i] == 'ç':
@@ -44,20 +42,22 @@ def upper(text):
     for i in range(len(text)):
         text[i] = text[i].upper()
 
+
 # Function that test if there is still punctuation signs
 def noPuncSignRemaining(text):
     punctSigns = [',', '.', '?', '!', "'", '-', '_', ':', ';']
-    for letter in text :
+    for letter in text:
         if letter in punctSigns:
             return False
     return True
 
+
 # Function that remove punctuations signs
 def removePunctuationSigns(text):
-    punctSigns = [',','.','?','!',"'",'-','_',':',';']
+    punctSigns = [',', '.', '?', '!', "'", '-', '_', ':', ';']
     while not noPuncSignRemaining(text):
         for element in punctSigns:
-            if element in text :
+            if element in text:
                 text.remove(element)
 
 
@@ -89,12 +89,12 @@ def keyOK(key):
    return False
 
 
-
 # Function that reorder keyleft
 keyLeft = ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'M', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'Q', 'W', 'X',
            'C', 'V', 'B', 'N']
 valeur = str("R")
 i = keyLeft.index(valeur)
+
 
 def shiftLeft(keyLeft, i):
     newkeyLeft = []
@@ -102,34 +102,25 @@ def shiftLeft(keyLeft, i):
     for lettre in keyLeft[i + 1:]:
         newkeyLeft.append(lettre)
 
-    for lettre in keyLeft[:i ]:
+    for lettre in keyLeft[:i]:
         newkeyLeft.append(lettre)
-
-    print(newkeyLeft)
 
     newkeyLeft.insert(0, valeur)
 
-    print(newkeyLeft)
-
     position1 = newkeyLeft[1]
-    newkeyLeft[1] = ' '
-    print(newkeyLeft)
+    newkeyLeft[1] = " "
 
-#partie de test, non finie, cause des erreurs affichées
     for lettre in newkeyLeft[2:13]:
-        deplacement = newkeyLeft.index(lettre)
-        deplacement-=1
+        indexOfLetter = newkeyLeft.index(lettre)
+        newkeyLeft[indexOfLetter - 1] = lettre
 
-    print(newkeyLeft)
-
-    print('shiftLeft')
 
     newkeyLeft[13] = position1
-    print(newkeyLeft)
 
+    return newkeyLeft
 
 # Function that reorder keyRight
-def shiftRight(keyRight,i):
+def shiftRight(keyRight, i):
     newKeyRight = []
 
     for letter in keyRight[i + 1:]:
