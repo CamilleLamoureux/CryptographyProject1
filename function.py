@@ -98,14 +98,18 @@ i = keyLeft.index(valeur)
 
 def shiftLeft(keyLeft, i):
     newkeyLeft = []
+    valeur = keyLeft[i]
 
     for lettre in keyLeft[i + 1:]:
         newkeyLeft.append(lettre)
+    print(newkeyLeft)
 
     for lettre in keyLeft[:i]:
         newkeyLeft.append(lettre)
+    print(newkeyLeft)
 
     newkeyLeft.insert(0, valeur)
+    print(newkeyLeft)
 
     position1 = newkeyLeft[1]
     newkeyLeft[1] = " "
@@ -113,11 +117,12 @@ def shiftLeft(keyLeft, i):
     for lettre in newkeyLeft[2:13]:
         indexOfLetter = newkeyLeft.index(lettre)
         newkeyLeft[indexOfLetter - 1] = lettre
+    print(newkeyLeft)
 
-
-    newkeyLeft[13] = position1
-
+    newkeyLeft[12] = position1
+    print(newkeyLeft)
     return newkeyLeft
+
 
 # Function that reorder keyRight
 def shiftRight(keyRight, i):
