@@ -2,18 +2,17 @@ from function import algorithm1,generateKey,convertLetters
 
 print('Welcome ! ! \n'
       'You want to (1 or 2): \n'
-      '\t 1- Cipher your own message\n'
-      '\t 2- Decipher (you will not choose the message or the key)\n')
+      '\t 1- Cipher (random generated keys)\n'
+      '\t 2- Decipher\n')
 
 choice = int(input('Your choice : '))
 
 # If we want to decipher
 if choice == 2:
     cipher = False
-    text = list(
-        'PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH')
-    keyLeft = list('ALZBHGUWIEFJCDYNMQRVKPTOXS')
-    keyRight = list('TWXLPRDZMNUGSAQKJHEBCIFYVO')
+    text = list(input('Your cipher text : \n'))
+    keyLeft = list(input('Your Left Key (see ReadMe for more specifications) : \n'))
+    keyRight = list(input('Your Right Key (see ReadMe for more specifications) : \n'))
     algorithm1(text, keyLeft, keyRight, cipher)
 
 # If we want to cipher

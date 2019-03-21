@@ -151,12 +151,30 @@ def algorithm1(text, keyLeft, keyRight, cipher):
     convertLetters(text)
 
     if cipher == True:
-        keyLeft = generateKey()
-        while not keyOK(keyLeft):
+        generateKey = int(input('Do you want to enter your own keys : \n'
+                                '\t 1- Yes \n'
+                                '\t 2- No (random keys will be generated)\n'))
+        if generateKey == 1:
+            keyLeft = list(input('Your Left Key : \n'))
+            while not keyOK(keyLeft):
+                print('Your key is not ok, please reenter it.')
+                keyLeft = list(input('Your Left Key : \n'))
+            keyRight = list(input('You Right Key : \n'))
+            while not keyOK(keyRight):
+                print('Your key is not ok, please reenter it.')
+                keyRight = list(input('You Right Key : \n'))
+
+        elif generateKey == 2:
             keyLeft = generateKey()
-        keyRight = generateKey()
-        while not keyOK(keyRight):
+            while not keyOK(keyLeft):
+                keyLeft = generateKey()
             keyRight = generateKey()
+            while not keyOK(keyRight):
+                keyRight = generateKey()
+        else:
+            print('Please, retry and make sure you enter 1 or 2.')
+
+
 
         for letter in text:
             i = keyRight.index(letter)
@@ -166,6 +184,8 @@ def algorithm1(text, keyLeft, keyRight, cipher):
             keyLeft = shiftLeft(keyLeft,i)
 
         encrypted_message = ''.join(encrypted_message)
+        print(''.join(keyRight))
+        print(''.join(keyLeft))
         print(encrypted_message)
 
     else:
