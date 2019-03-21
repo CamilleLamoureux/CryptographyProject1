@@ -9,7 +9,7 @@ choice = int(input('Your choice : '))
 
 # If we want to decipher
 if choice == 2:
-    cipher = True
+    cipher = False
     text = list(
         'PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH')
     keyLeft = list('ALZBHGUWIEFJCDYNMQRVKPTOXS')
@@ -18,7 +18,7 @@ if choice == 2:
 
 # If we want to cipher
 elif choice == 1:
-    cipher = False
+    cipher = True
     text = list(input('Your message : '))
     keyLeft = generateKey()
     keyRight = generateKey()

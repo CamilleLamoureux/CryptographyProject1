@@ -1,4 +1,6 @@
 #Imports
+from random import randint
+import string
 
 # Function that test if their are remaining spaces in the text
 def noSpaceRemaining(text):
@@ -61,7 +63,7 @@ def removePunctuationSigns(text):
                 text.remove(element)
 
 
-# Function that convert the givent text into a
+# Function that convert the given text into a
 def convertLetters(text):
     removeSpaces(text)
     removeAccents(text)
@@ -102,14 +104,11 @@ def shiftLeft(keyLeft, i):
 
     for lettre in keyLeft[i + 1:]:
         newkeyLeft.append(lettre)
-    print(newkeyLeft)
 
     for lettre in keyLeft[:i]:
         newkeyLeft.append(lettre)
-    print(newkeyLeft)
 
     newkeyLeft.insert(0, valeur)
-    print(newkeyLeft)
 
     position1 = newkeyLeft[1]
     newkeyLeft[1] = " "
@@ -117,10 +116,8 @@ def shiftLeft(keyLeft, i):
     for lettre in newkeyLeft[2:13]:
         indexOfLetter = newkeyLeft.index(lettre)
         newkeyLeft[indexOfLetter - 1] = lettre
-    print(newkeyLeft)
 
     newkeyLeft[12] = position1
-    print(newkeyLeft)
     return newkeyLeft
 
 
@@ -147,34 +144,37 @@ def shiftRight(keyRight, i):
 
 
 # Function that cipher or decipher the given text
-dencrypted_message=[]
-decrypted_message=[]
-enc_letter=str()
-dec_letter=int()
 def algorithm1(text, keyLeft, keyRight, cipher):
+    encrypted_message = []
+    decrypted_message = []
+
+    convertLetters(text)
+
     if cipher == True:
-        convertLetters(text)
         keyLeft = generateKey()
-        keyOK(keyLeft)
+        while not keyOK(keyLeft):
+            keyLeft = generateKey()
         keyRight = generateKey()
-        keyOK(keyRight)
+        while not keyOK(keyRight):
+            keyRight = generateKey()
 
-        for lettre in range(0,text):
-            position = keyRight.index(i)
-            enc_letter=(keyLeft[position])
-            encrypted_message.append[enc_letter]
-            shiftRight(keyRight,i)
-            shiftLeft(keyLeft,i)
+        for letter in text:
+            i = keyRight.index(letter)
+            enc_letter = keyLeft[i]
+            encrypted_message.append(enc_letter)
+            keyRight = shiftRight(keyRight,i)
+            keyLeft = shiftLeft(keyLeft,i)
 
+        encrypted_message = ''.join(encrypted_message)
         print(encrypted_message)
 
     else:
-        convertLetters(text)
-        for lettre in range(0, text):
-            position = keyLeft.index(i)
-            dec_letter = keyRight[position]
-            decrypted_message.append[dec_letter]
-            shiftRight(keyRight,i)
-            shiftLeft(keyLeft,i)
+        for letter in text:
+            i = keyLeft.index(letter)
+            dec_letter = keyRight[i]
+            decrypted_message.append(dec_letter)
+            keyRight = shiftRight(keyRight,i)
+            keyLeft = shiftLeft(keyLeft,i)
 
+        decrypted_message = ''.join(decrypted_message)
         print(decrypted_message)
