@@ -113,11 +113,11 @@ def shiftLeft(keyLeft, i):
     position1 = newkeyLeft[1]
     newkeyLeft[1] = " "
 
-    for lettre in newkeyLeft[2:13]:
+    for lettre in newkeyLeft[2:14]:
         indexOfLetter = newkeyLeft.index(lettre)
         newkeyLeft[indexOfLetter - 1] = lettre
 
-    newkeyLeft[12] = position1
+    newkeyLeft[13] = position1
     return newkeyLeft
 
 
